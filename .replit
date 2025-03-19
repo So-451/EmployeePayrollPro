@@ -1,0 +1,33 @@
+modules = ["java"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Java Employee Payroll System"
+
+[[workflows.workflow]]
+name = "Java Employee Payroll System"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd src/main/java && javac com/payroll/Main.java && java com.payroll.Main"
+
+[deployment]
+run = ["sh", "-c", "cd src && javac com/payroll/Main.java && java com.payroll.Main"]
