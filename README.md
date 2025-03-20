@@ -42,7 +42,7 @@ A Java-based payroll management system for handling employee salaries, leaves, a
    
    Compile the Java files:
    ```
-   javac -d bin src/main/java/com/payroll/*.java src/main/java/com/payroll/*/*.java
+   javac -d bin src\main\java\com\payroll\models\*.java src\main\java\com\payroll\services\*.java src\main\java\com\payroll\utils\*.java src\main\java\com\payroll\Main.java
    ```
    
    Run the application:
